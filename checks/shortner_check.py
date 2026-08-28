@@ -1,7 +1,8 @@
 #shortner check 
+from urllib.parse import urlparse
+
 
 def check_shortener(url):
-    from urllib.parse import urlparse
     shorteners = ["bit.ly", "tinyurl.com", "goo.gl", "t.co", "is.gd", "ow.ly", "buff.ly", "adf.ly", "cutt.ly", "rebrand.ly"]
     parser = urlparse(url)
 
