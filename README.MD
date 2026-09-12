@@ -1,5 +1,3 @@
-```markdown
-
 # 🛡️ PhishLens
 
 > An intelligent link analyzer for detecting potential phishing.
@@ -32,27 +30,28 @@ The project is intended for developers, information security specialists, and an
 3. A set of rules checks for common phishing indicators.
 4. A risk assessment and list of detected factors are generated.
 
-## Example
+## Usage
 
-```text
-URL: https://secure-account.example.com/login?verify=1
-
-Result: ⚠️ Elevated risk
-
-Reasons:
-• suspicious subdomain
-• request for a sensitive action through a URL parameter
-• domain has not been confirmed as official
-```
-
-## Installation
+No dependencies — only Python 3.8+.
 
 ```bash
-git clone https://github.com/<ваш-профиль>/<ваш-репозиторий>.git
-cd <ваш-репозиторий>
+git clone https://github.com/vl2007s/SPL.git
+cd SPL
+python UI/cli.py "http://bit.ly/abc"
 ```
 
-Further launch commands depend on the project stack and will be added as the tool develops.
+Example output:
+
+```text
+URL: http://bit.ly/abc
+Risk Score: 30
+Danger Level: Low
+Reasons:
+- No HTTPS in link
+- URL shortener used
+```
+
+Each check lives in `checks/` and is registered with a weight in `core.py` — add a new rule by writing a `check(url) -> (found, reason)` function and adding one line to `CHECKS`.
 
 ## Security Recommendations
 
@@ -64,7 +63,7 @@ Further launch commands depend on the project stack and will be added as the too
 ## Roadmap
 
 - [ ] Web interface for checking links
-- [ ] Command-line interface (CLI)
+- [x] Command-line interface (CLI)
 - [ ] Domain reputation checks through external sources
 - [ ] QR code analysis
 - [ ] Report export
@@ -77,4 +76,3 @@ Ideas and pull requests are welcome. Before submitting changes, describe the pro
 ## License
 
 This project is distributed under the [MIT](LICENSE) license.
-```
